@@ -1,0 +1,25 @@
+<svg 
+width="64" 
+height="64" 
+viewBox="0 0 64 64" 
+fill="none" 
+xmlns="http://www.w3.org/2000/svg"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+>
+  <path d="m22 21 2 2h3q5-3 10 0h3l2-2"/>
+  <path d="m31 22-2 9 2 1h2l2-1-2-9"/>
+  <path d="M37 27q7 0 9-4 2-3-2-6l-1-1c1-5-3-10-11-7q0 0 0 0-12-3-11 7l-1 1q-4 3-2 6 2 4 9 4"/>
+  <path d="M25 28c2 6 0 14-7 11m21-12q4 8 2 15-5 12-17 13-13-1-15-13c0-8 10-11 16-9"/>
+  <path d="M42 33q12-2 13 9c0 7-7 13-13 13q-7-1-8-3"/>
+  <path d="M11 35q-3-4-2-9h2l5 7"/>
+  <path d="M47 39q-2 2-5 1"/>
+  <circle cx="26" cy="14" r="2"/>
+  <circle cx="38" cy="14" r="2"/>
+  <circle cx="30" cy="18" r="1" fill="currentColor" stroke-width="0"/>
+  <circle cx="34" cy="18" r="1" fill="currentColor" stroke-width="0"/>
+</svg>
+
+
