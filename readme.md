@@ -4,7 +4,7 @@ Frontier Icons is a curated set of SVG icons inspired by the Old West. Unlike ge
 
 Each icon uses consistent stroke weight and rounded terminals, making them suitable for both rugged, stylized UIs (e.g. games) and clean, minimal web applications.
 
-![Frontier Icons library preview](https://github.com/khralenok/frontier-icons/cover.webp)
+![Frontier Icons library preview](https://github.com/khralenok/frontier-icons/blob/main/cover.webp)
 
 ## ✨ Collection
 
