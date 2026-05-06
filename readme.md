@@ -10,10 +10,10 @@ Each icon uses consistent stroke weight and rounded terminals, making them suita
 
 The current set covers core frontier motifs:
 
-- Tools & Utility: Pickaxe, Hammer, Axe, Barrel
-- Gear: Cowboy Hat, Western Boot
-- Action: Revolver, Bowie Knife, Bomb, Arrow
-- Nature: Rattlesnake, Sprouting Seed
+- Tools & Utility: Pickaxe, Hammer, Axe, Barrel, Minecart, Ingot
+- Gear: Cowboy Hat, Western Boot, Saddle
+- Action: Revolver, Bowie Knife, Bomb, Arrow, Lasso
+- Nature: Rattlesnake, Sprouting Seed, Cactus, Sun
 
 ## 🚀 Features
 Consistent Linework — Uniform stroke width across all icons
