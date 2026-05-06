@@ -1,0 +1,19 @@
+<svg 
+width="64" 
+height="64" 
+viewBox="0 0 64 64" 
+fill="none" 
+xmlns="http://www.w3.org/2000/svg"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+>
+  <path d="m56 23-1 7H10l-1-7z"/>
+  <path d="M47 48h3l3-18"/>
+  <path d="m12 30 3 18h3"/>
+  <path d="M37 48h-8"/>
+  <circle cx="23" cy="48" r="5"/>
+  <circle cx="42" cy="48" r="5"/>
+  <path d="m12 23 3-4 4-1 5-3 7-2 7 2 5 3 6 1 3 2 1 2"/>
+</svg>

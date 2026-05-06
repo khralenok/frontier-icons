@@ -1,0 +1,15 @@
+<svg 
+width="64" 
+height="64" 
+viewBox="0 0 64 64" 
+fill="none" 
+xmlns="http://www.w3.org/2000/svg"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+>
+  <path d="M41 54c-12 0-26-3-26-9q-1-6 16-6c18 0 21-7 21-13l-2-6"/>
+  <ellipse cx="31" cy="21" rx="19" ry="9"/>
+  <path d="m48 20 4-1"/>
+</svg>
