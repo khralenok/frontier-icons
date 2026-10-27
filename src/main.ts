@@ -11,7 +11,7 @@ const github = 'https://github.com/khralenok/frontier-icons';
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header class="site-header wrap">
     <a class="brand" href="#" aria-label="Frontier Icons home"><span class="brand-mark">${saddleMark}</span><span>frontier icons</span></a>
-    <nav aria-label="Main navigation"><a href="#collection">The collection</a><a href="${github}" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme"></button></nav>
+    <nav aria-label="Main navigation"><a href="#collection">The collection</a><a href="${import.meta.env.BASE_URL}preview/">In the wild</a><a href="${github}" target="_blank" rel="noreferrer">GitHub</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme"></button></nav>
   </header>
   <main>
     <section class="hero wrap" aria-labelledby="hero-title">
@@ -23,15 +23,22 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </div>
       <div class="hero-art"><div class="sun-disc"></div><span class="art-label">EST. 2026 / THE OPEN RANGE</span><img src="${illustration}" alt="Western musician in a cowboy hat playing a guitar" fetchpriority="high"></div>
     </section>
+    <section class="showcase-promo wrap" aria-labelledby="showcase-title">
+      <a class="preview-banner" href="${import.meta.env.BASE_URL}preview/" aria-labelledby="showcase-title showcase-cta">
+        <span class="preview-banner-art" aria-hidden="true">${decorative(icons.find(icon => icon.name === 'coffin')!.svg)}<span>LAST MILE</span></span>
+        <div class="preview-banner-copy"><p class="preview-banner-kicker">A FRONTIER ICONS SHOWCASE</p><h2 id="showcase-title">Good icons. Terrible odds.</h2><p>Step into Last Mile Coffin Co., a darkly comic demo of these icons in action.</p></div>
+        <span class="preview-banner-cta" id="showcase-cta">Visit Last Mile</span>
+      </a>
+    </section>
     <section class="collection wrap" id="collection" aria-labelledby="collection-title">
       <div class="collection-heading"><div><p class="eyebrow">THE COLLECTION</p><h2 id="collection-title">Good company for your next project<span>.</span></h2></div><span class="count">${icons.length} hand-drawn icons</span></div>
       <div class="toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find something out here…" aria-label="Search icons"><kbd>/</kbd></label><label class="size-control">Preview size <input id="grid-size" type="range" min="32" max="64" value="48"><output id="grid-size-value">48px</output></label></div>
       <div class="grid" id="grid"></div><p class="empty" id="empty" hidden>No icons found. Try “cowboy”, “tools”, or another name.</p>
       <div class="collection-bottom"><p id="results" role="status"></p><p>Made with care. Ready for adventure.</p></div>
     </section>
-    <section class="license-strip wrap"><span class="license-star" aria-hidden="true">✳</span><div><h3>Yours to roam with.</h3><p>Personal projects, commercial adventures, and everything in between. Free under the MIT license.</p></div><a href="${github}/blob/main/LICENSE" target="_blank" rel="noreferrer">Read the license ↗</a></section>
+    <section class="license-strip wrap"><span class="license-icon" aria-hidden="true">${decorative(icons.find(icon => icon.name === 'feather')!.svg)}</span><div><h3>Yours to roam with.</h3><p>Personal projects, commercial adventures, and everything in between. Free under the MIT license.</p></div><a href="${github}/blob/main/LICENSE" target="_blank" rel="noreferrer">Read the license ↗</a></section>
   </main>
-  <footer class="wrap"><a class="brand" href="#"><span class="brand-mark">${saddleMark}</span><span>frontier icons</span></a><p>Drawn for the open web.</p><a href="${github}" target="_blank" rel="noreferrer">Made open source ↗</a></footer>
+  <footer class="wrap"><a class="brand" href="#"><span class="brand-mark">${saddleMark}</span><span>frontier icons</span></a><a href="${import.meta.env.BASE_URL}preview/">See the icons in the wild ↗</a><a href="${github}" target="_blank" rel="noreferrer">Made open source ↗</a></footer>
   <dialog id="detail" aria-labelledby="detail-title"><div class="dialog-top"><p class="eyebrow">FROM THE FRONTIER</p><button class="close" aria-label="Close icon details">×</button></div><h2 id="detail-title"></h2><div class="icon-preview" id="preview" aria-hidden="true"></div><div class="settings"><label>Size <output id="size-value">64px</output><input id="size" type="range" min="16" max="128" value="64"></label><label>Stroke <output id="stroke-value">2</output><input id="stroke" type="range" min="1" max="4" step="0.25" value="2"></label><label class="color-label">Color<input id="color" type="color" value="#352c25"></label></div><div class="dialog-actions"><button class="button primary" id="copy">Copy SVG</button><button class="button secondary" id="download">Download SVG ↧</button></div><details><summary>SVG source</summary><pre><code id="source"></code></pre></details></dialog>
   <div class="toast" id="toast" role="status"></div>`;
 
@@ -57,7 +64,7 @@ function decorative(svg: string) { return svg.replace('<svg', '<svg aria-hidden=
 function render() {
   const query = el<HTMLInputElement>('search').value.trim().toLowerCase();
   const matching = icons.filter(icon => `${icon.name} ${icon.name.replaceAll('-', ' ')} ${aliases[icon.name] || ''} ${['axe', 'hammer', 'pickaxe'].includes(icon.name) ? 'tools' : ''}`.includes(query));
-  el('grid').innerHTML = matching.map(icon => `<button class="icon-card" data-icon="${icon.name}" aria-label="Preview ${icon.name}"><span class="card-arrow" aria-hidden="true">↗</span>${decorative(icon.svg)}<span>${icon.name}</span></button>`).join('');
+  el('grid').innerHTML = matching.map(icon => `<button class="icon-card" data-icon="${icon.name}" aria-label="Preview ${icon.name}">${decorative(icon.svg)}<span>${icon.name}</span></button>`).join('');
   el('empty').hidden = matching.length > 0;
   el('results').textContent = `Showing ${matching.length} of ${icons.length} icons`;
 }

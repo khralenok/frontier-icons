@@ -41,6 +41,12 @@ npm run preview
 
 The production site is generated in `dist/`. For hosting under a subpath, build with `npm run build -- --base=/frontier-icons/`.
 
+### Icons in the wild
+
+Visit `/preview/` (or choose **In the wild** in the gallery) for **Last Mile Coffin Co.**, a fictional frontier business showcasing the icons in cards, statistics, a delivery timeline, pricing, and a contact form. The form demonstrates validation, loading, success, and delivery-error states entirely in the browser; nothing is submitted or persisted. Choose a simulated response with **Try a form state** below the form.
+
+Both pages share a saddle-based SVG favicon and are included in the GitHub Pages build. The demo lives in `preview/index.html`, `src/preview.ts`, and `src/preview.css`.
+
 SVG files in `svg/` are discovered automatically at build time. Add a new SVG there and optionally add search aliases in `src/search-aliases.ts`. The existing artwork stays untouched; customization only affects exported copies. The hero illustration lives in `img/hero-illustration.png`.
 
 After saving icons from Illustrator, run:
