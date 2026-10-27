@@ -1,25 +1,5 @@
-<svg 
-width="64" 
-height="64" 
-viewBox="0 0 64 64" 
-fill="none" 
-xmlns="http://www.w3.org/2000/svg"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round"
->
-  <path d="m22 21 2 2h3q5-3 10 0h3l2-2"/>
-  <path d="m31 22-2 9 2 1h2l2-1-2-9"/>
-  <path d="M37 27q7 0 9-4 2-3-2-6l-1-1c1-5-3-10-11-7q0 0 0 0-12-3-11 7l-1 1q-4 3-2 6 2 4 9 4"/>
-  <path d="M25 28c2 6 0 14-7 11m21-12q4 8 2 15-5 12-17 13-13-1-15-13c0-8 10-11 16-9"/>
-  <path d="M42 33q12-2 13 9c0 7-7 13-13 13q-7-1-8-3"/>
-  <path d="M11 35q-3-4-2-9h2l5 7"/>
-  <path d="M47 39q-2 2-5 1"/>
-  <circle cx="26" cy="14" r="2"/>
-  <circle cx="38" cy="14" r="2"/>
-  <circle cx="30" cy="18" r="1" fill="currentColor" stroke-width="0"/>
-  <circle cx="34" cy="18" r="1" fill="currentColor" stroke-width="0"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M23.6,33c-12,0-19.6,9-15.6,15,4,8,23,10,37,6,11-3,13-10,9-16s-12.7-11.2-21.7-11.2-6.6-3-5.6-5.9,6.7-6.1,13.3-4.9l9-2c2.7-2,2.7-4,0-6h-8c-12-3-23,6-23,17s8,9,13,9c10,0,15,3,15,7s-9,8.5-17,8-13.2-3.3-12.1-6.1c0,0,1.7-4.5,13.5-3.3,0,0,6,.5,6.5,2.3s-9.4,3.3-11.6,1.7" />
+  <path d="M49,14c7-1.6,2.4,8.7,9.2,5.8" />
+  <circle cx="42.4" cy="11.5" r="1" fill="currentColor" stroke="none" />
 </svg>
-
-

@@ -1,0 +1,16 @@
+<svg
+width="64"
+height="64"
+viewBox="0 0 64 64"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+>
+  <path d="M7 55c17 2 28-9 39-25l-8-4C29 40 22 46 7 45M20 44l4 8"/>
+  <g transform="rotate(30 42 28)">
+    <path d="M37 28v-5q-3-3 0-6-3-3 0-6v-1q0-4 5-4t5 4v1q3 3 0 6 3 3 0 6v5M37 17q5 2 10 0M37 23q5 2 10 0"/>
+  </g>
+</svg>

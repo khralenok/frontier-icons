@@ -1,0 +1,14 @@
+<svg
+width="64"
+height="64"
+viewBox="0 0 64 64"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+>
+  <path d="M8 25h48v30H8zM6 18h52v7H6zM24 18v-7h16v7M14 25v30m36-30v30"/>
+  <path d="M28 38c0-4 4-8 4-8s4 4 4 8v9h-8zM27 47h10M28 39h8"/>
+</svg>

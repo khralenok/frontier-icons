@@ -1,19 +1,9 @@
-<svg 
-width="64" 
-height="64" 
-viewBox="0 0 64 64" 
-fill="none" 
-xmlns="http://www.w3.org/2000/svg"
-stroke="currentColor"
-stroke-width="2"
-stroke-linecap="round"
-stroke-linejoin="round"
->
-<path d="M48 48C47 51 41 54 32 54C23 54 17 51 16 48"/>
-<ellipse cx="32" cy="15" rx="16" ry="5"/>
-<path d="M48 15C51 24 51 38 48 48"/>
-<path d="M16 15C13 24 13 38 16 48"/>
-<path d="M14 25C24 30 40 30 50 25"/>
-<path d="M15 42C24 48 39 48 49 42"/>
-<ellipse cx="25" cy="15" rx="2" ry="1" stroke-width="0" fill="currentColor"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M48 48C47 51 41 54 32 54C23 54 17 51 16 48" />
+  <ellipse cx="32" cy="15" rx="16" ry="5" />
+  <path d="M48 15C51 24 51 38 48 48" />
+  <path d="M16 15C13 24 13 38 16 48" />
+  <path d="M14 25C24 30 40 30 50 25" />
+  <path d="M15 42C24 48 39 48 49 42" />
+  <ellipse cx="25" cy="15" rx="2" ry="1" fill="currentColor" stroke="none" />
 </svg>

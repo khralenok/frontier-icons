@@ -2,3 +2,5 @@
 /workshop
 node_modules/
 dist/
+__pycache__/
+task.md

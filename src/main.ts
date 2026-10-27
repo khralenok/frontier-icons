@@ -1,9 +1,9 @@
 import './style.css';
+import { aliases } from './search-aliases';
 import illustration from '../img/hero-illustration.png';
 import license from '../LICENSE?raw';
 
 const sources = import.meta.glob('../svg/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
-const aliases: Record<string, string> = { hat: 'cowboy headwear', boot: 'western footwear', seed: 'sprout plant', snake: 'rattlesnake animal', knife: 'bowie blade', revolver: 'gun pistol', ingot: 'gold metal', minecart: 'mining wagon', lasso: 'rope' };
 const icons = Object.entries(sources).map(([path, svg]) => ({ name: path.split('/').pop()!.replace('.svg', ''), svg })).sort((a, b) => a.name.localeCompare(b.name));
 const saddleMark = decorative(icons.find(icon => icon.name === 'saddle')!.svg);
 const github = 'https://github.com/khralenok/frontier-icons';
@@ -56,7 +56,7 @@ themeButton.addEventListener('click', () => {
 function decorative(svg: string) { return svg.replace('<svg', '<svg aria-hidden="true" focusable="false"'); }
 function render() {
   const query = el<HTMLInputElement>('search').value.trim().toLowerCase();
-  const matching = icons.filter(icon => `${icon.name} ${aliases[icon.name] || ''} ${['axe', 'hammer', 'pickaxe'].includes(icon.name) ? 'tools' : ''}`.includes(query));
+  const matching = icons.filter(icon => `${icon.name} ${icon.name.replaceAll('-', ' ')} ${aliases[icon.name] || ''} ${['axe', 'hammer', 'pickaxe'].includes(icon.name) ? 'tools' : ''}`.includes(query));
   el('grid').innerHTML = matching.map(icon => `<button class="icon-card" data-icon="${icon.name}" aria-label="Preview ${icon.name}"><span class="card-arrow" aria-hidden="true">↗</span>${decorative(icon.svg)}<span>${icon.name}</span></button>`).join('');
   el('empty').hidden = matching.length > 0;
   el('results').textContent = `Showing ${matching.length} of ${icons.length} icons`;

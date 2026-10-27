@@ -1,0 +1,15 @@
+<svg
+width="64"
+height="64"
+viewBox="0 0 64 64"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+>
+  <g transform="rotate(-32 32 32)">
+    <path d="m5 30 12 2 7-5h10v10H23l-6 5H5zM34 27h20v7H34m0-3h20M38 34v5h12v-5M26 37v3q0 4 5 4t5-4v-3"/>
+  </g>
+</svg>

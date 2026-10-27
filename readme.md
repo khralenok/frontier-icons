@@ -8,12 +8,13 @@ Each icon uses consistent stroke weight and rounded terminals, making them suita
 
 ## ✨ Collection
 
-The current set covers core frontier motifs:
+The collection contains **91 SVG icons**, covering the subjects listed in `task.md` plus a standalone moon, handcuffs, feather, blocked mine, cigar, town clock, human skull, bone, and coffin. The sheriff star is consolidated into `sheriff-badge` (searchable under either name):
 
-- Tools & Utility: Pickaxe, Hammer, Axe, Barrel, Minecart, Ingot
-- Gear: Cowboy Hat, Western Boot, Saddle
-- Action: Revolver, Bowie Knife, Bomb, Arrow, Lasso
-- Nature: Rattlesnake, Sprouting Seed, Cactus, Sun
+- Tools & utility: mining tools, lantern, water well, gold pan, and supplies
+- Clothing & gear: hats, boots, saddle, bandana, poncho, vest, gloves, and spurs
+- Animals & nature: horses, cattle, buffalo, coyote, vulture, scorpion, plants, moon, and landscapes
+- Buildings & transport: saloon, jail, bank, ranch, stable, windmill, trains, and wagons
+- Frontier objects: badges, wanted poster, signs, money bag, playing cards, and equipment
 
 ## 🚀 Features
 Consistent Linework — Uniform stroke width across all icons
@@ -40,7 +41,16 @@ npm run preview
 
 The production site is generated in `dist/`. For hosting under a subpath, build with `npm run build -- --base=/frontier-icons/`.
 
-SVG files in `svg/` are discovered automatically at build time. Add a new SVG there and optionally add search aliases in `src/main.ts`. The existing artwork stays untouched; customization only affects exported copies. The hero illustration lives in `img/hero-illustration.png`.
+SVG files in `svg/` are discovered automatically at build time. Add a new SVG there and optionally add search aliases in `src/search-aliases.ts`. The existing artwork stays untouched; customization only affects exported copies. The hero illustration lives in `img/hero-illustration.png`.
+
+After saving icons from Illustrator, run:
+
+```sh
+npm run normalize:icons
+npm run check:icons
+```
+
+These commands require Python 3. Normalization preserves path geometry and converts exported presentation to the library's `currentColor`, inherited stroke width, and 64×64 defaults. Filled details remain filled. The check command reports files that still need cleanup without modifying them. See [ICON_GUIDELINES.md](ICON_GUIDELINES.md) for drawing and review guidance.
 
 ### Deploy to GitHub Pages
 

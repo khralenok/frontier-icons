@@ -1,0 +1,17 @@
+<svg
+width="64"
+height="64"
+viewBox="0 0 64 64"
+fill="none"
+xmlns="http://www.w3.org/2000/svg"
+stroke="currentColor"
+stroke-width="2"
+stroke-linecap="round"
+stroke-linejoin="round"
+>
+  <path d="M11 17h38l3 24H8zM12 17l4-9h27l5 9M21 17v24m19-24v24M26 23h9v9h-9zM8 41h45M52 30h7v8h-6M8 28H4v10h4"/>
+  <circle cx="17" cy="50" r="8"/>
+  <circle cx="46" cy="50" r="8"/>
+  <circle cx="17" cy="50" r="2"/>
+  <circle cx="46" cy="50" r="2"/>
+</svg>
