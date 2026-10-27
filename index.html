@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A small collection of open-source SVG icons with a little frontier spirit. Browse, customize, and download." />
+    <meta name="theme-color" content="#1c1815" />
+    <script>
+      try { if (localStorage.getItem('frontier-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch {}
+      if (document.documentElement.dataset.theme === 'light') document.querySelector('meta[name="theme-color"]').content = '#f6f0e4';
+    </script>
+    <title>Frontier Icons — A little wild. Simply drawn.</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
