@@ -1,7 +1,9 @@
-import './preview.css';
-import heroIllustration from '../img/last-mile-hero.png';
-
-const sources = import.meta.glob('../svg/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
+const sources = import.meta.glob([
+  '../svg/arrow.svg', '../svg/canyon.svg', '../svg/coffin.svg', '../svg/cowboy.svg', '../svg/dynamite.svg',
+  '../svg/hammer.svg', '../svg/horse.svg', '../svg/horseshoe.svg', '../svg/lasso.svg', '../svg/pocket-watch.svg',
+  '../svg/revolver.svg', '../svg/sheriff-badge.svg', '../svg/skull.svg', '../svg/snake.svg',
+  '../svg/tombstone.svg', '../svg/vulture.svg', '../svg/wagon.svg', '../svg/whiskey-bottle.svg', '../svg/wooden-sign.svg',
+], { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 function icon(name: string, className = '') {
   const source = sources[`../svg/${name}.svg`];
   if (!source) throw new Error(`Missing showcase icon: ${name}`);
@@ -23,14 +25,6 @@ const hazards = [
 ];
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="demo-ribbon"><div class="container"><a href="${gallery}">${icon('saddle')} Frontier Icons <span>/</span> In the wild</a><span>A fictional business. A real icon collection.</span><a href="${gallery}">Back to the icons ↗</a></div></div>
-  <header class="masthead container"><a class="wordmark" href="#" aria-label="Last Mile Coffin Co. home">${icon('coffin')}<span>LAST MILE<small>COFFIN COMPANY · EST. 1874</small></span></a><nav aria-label="Main navigation"><a href="#hazards">Why plan ahead?</a><a href="#plans">The coffins</a><a class="button button-outline" href="#reserve">Reserve your exit ${icon('arrow')}</a></nav></header>
-  <main id="main">
-    <section class="landing-hero container" aria-labelledby="headline">
-      <div class="hero-text"><p class="kicker"><span class="status-dot"></span> SERVING THE LIVING. MOSTLY.</p><h1 id="headline">Tomorrow isn’t <br>guaranteed. <br><span>Your coffin is.</span></h1><p class="hero-description">The West has a thousand ways to ruin your day. <br>We have a surprisingly convenient solution for the last one.</p><div class="hero-buttons"><a class="button button-gold" href="#plans">Get ahead of the inevitable ${icon('arrow')}</a><a class="quiet-link" href="#hazards">How bad could it be? ↓</a></div><div class="hero-promises"><span>${icon('wagon')} Fast local delivery</span><span>${icon('hammer')} Hand-built, unfortunately</span></div></div>
-      <figure class="hero-illustration"><img src="${heroIllustration}" width="1254" height="1254" alt="A smiling undertaker gives a thumbs-up while trying a wooden coffin in his workshop." fetchpriority="high" decoding="async"></figure>
-    </section>
     <div class="dispatch-strip"><div class="container"><span>${icon('pocket-watch')} Open until the sun goes down. Or you do.</span><span>${icon('horseshoe')} No appointment. No judgment. No returns.</span></div></div>
     <section class="hazards-section container section-space" id="hazards" aria-labelledby="hazards-heading"><div class="section-heading"><div><p class="kicker">A PERFECTLY REASONABLE CONCERN</p><h2 id="hazards-heading">Lovely place. <br><span>Terrible odds.</span></h2></div><p>Come for the wide-open spaces. <br>Stay because the doctor is also the barber.</p></div><div class="hazard-grid">${hazards.map((hazard, i) => `<article class="hazard-card"><div class="hazard-top">${icon(hazard.icon)}<span>0${i + 1} / ${hazard.category}</span></div><h3>${hazard.title}</h3><p>${hazard.text}</p></article>`).join('')}</div><p class="hazard-footnote">This is not an exhaustive list. We haven’t even mentioned the dentistry.</p></section>
     <section class="outlook-section" aria-labelledby="outlook-heading"><div class="container outlook-inner"><div><p class="kicker">THE LONG-TERM OUTLOOK</p><h2 id="outlook-heading">A business model <br>with very little guesswork.</h2><p>Our extremely unscientific frontier forecast.</p></div><div class="outlook-stats"><div>${icon('cowboy')}<strong>1</strong><span>life per customer</span></div><div>${icon('skull')}<strong>0</strong><span>documented respawns</span></div><div>${icon('coffin')}<strong>100<span>%</span></strong><span>eventual relevance</span></div></div></div></section>
@@ -44,8 +38,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     ].map(([question, answer]) => `<details><summary>${question}<span aria-hidden="true">+</span></summary><p>${answer}</p></details>`).join('')}</div></section>
     <section class="reservation-section" id="reserve" aria-labelledby="reserve-heading"><div class="container reservation-inner"><div class="reservation-copy"><p class="kicker">NO TIME LIKE THE PRESENT</p><h2 id="reserve-heading">Make one <br>good decision <br><span>while you can.</span></h2><p>Leave your particulars. We’ll keep a place for you. <br>Not a grave. A place on the list. Important distinction.</p><div class="contact-note">${icon('wooden-sign')}<span>Find us opposite the saloon. <br>Business has been excellent.</span></div><p class="demo-note">A form demo, for the living and curious. <br>Nothing is sent or saved.</p></div>
       <div class="form-panel"><form id="reservation-form" novalidate><div class="form-header"><h3>Reserve your exit</h3><span>${icon('coffin')} No rush. Until there is.</span></div>
-        <div class="field"><label for="customer-name">Your name <span>(while it’s still yours)</span></label><input id="customer-name" name="name" autocomplete="name" maxlength="80" placeholder="e.g. Lucky Luke" required aria-describedby="name-error"><p class="field-error" id="name-error" hidden></p></div>
-        <div class="field"><label for="customer-email">Email address</label><input id="customer-email" name="email" autocomplete="email" type="email" maxlength="254" placeholder="you@the-saloon.example" required aria-describedby="email-error"><p class="field-error" id="email-error" hidden></p></div>
+        <div class="field"><label for="customer-name">Your name <span>(while it’s still yours)</span> <span class="required-indicator">(required)</span></label><input id="customer-name" name="name" autocomplete="name" maxlength="80" placeholder="e.g. Lucky Luke" required aria-describedby="name-error"><p class="field-error" id="name-error" hidden></p></div>
+        <div class="field"><label for="customer-email">Email address <span class="required-indicator">(required)</span></label><input id="customer-email" name="email" autocomplete="email" inputmode="email" autocorrect="off" autocapitalize="none" spellcheck="false" type="email" maxlength="254" placeholder="you@the-saloon.example" required aria-describedby="email-error"><p class="field-error" id="email-error" hidden></p></div>
         <div class="field-row"><div class="field"><label for="coffin-plan">Your preferred exit</label><select id="coffin-plan" name="plan">${plans.map(plan => `<option value="${plan.id}" ${plan.id === 'respectable' ? 'selected' : ''}>${plan.name} — $${plan.price}</option>`).join('')}</select></div><div class="field"><label for="urgency">How’s your day going?</label><select id="urgency" name="urgency"><option value="planning">Planning ahead</option><option value="today">A little concerning</option><option value="urgent">Vultures are circling</option></select></div></div>
         <label class="checkbox-label"><input type="checkbox" name="saloon"> Leave it by the saloon, if I’m not around.</label>
         <div class="form-alert" id="form-alert" role="alert" hidden></div><button type="submit" class="button button-gold submit-button" id="submit-request"><span>Put me on the list</span>${icon('arrow')}</button><p class="form-fineprint">No payment. No spam. No actual undertaker.</p>
@@ -53,8 +47,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </form><div class="success-panel" id="form-success" hidden><div class="success-seal">${icon('horseshoe')}</div><p class="kicker">LUCK IS STILL ON YOUR SIDE</p><h3 id="success-heading" tabindex="-1">You’re on the list. <br>Stay off the roof.</h3><p id="success-plan"></p><p>This was a demo. No request was sent, <br>and no coffin is on its way.</p><button class="button button-outline" id="start-again">Tempt fate again ${icon('arrow')}</button></div></div>
     </div></section>
     <section class="closing-line container">${icon('vulture')}<p>We hope you never need us. <br><span>We’re fairly confident you will.</span></p>${icon('tombstone')}</section>
-  </main>
-  <footer class="demo-footer container"><a class="wordmark" href="#">${icon('coffin')}<span>LAST MILE<small>FINE PINE. FAST DELIVERY. TERRIBLE TIMING.</small></span></a><p>A fictional service, illustrated with Frontier Icons.</p><a href="${gallery}">Get the icons ${icon('arrow')}</a></footer>`;
+`;
 
 function el<T extends HTMLElement = HTMLElement>(id: string) { return document.getElementById(id) as T; }
 const form = el<HTMLFormElement>('reservation-form');

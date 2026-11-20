@@ -1,28 +1,11 @@
-import './style.css';
 import { aliases } from './search-aliases';
-import illustration from '../img/hero-illustration.png';
 import license from '../LICENSE?raw';
 
 const sources = import.meta.glob('../svg/*.svg', { query: '?raw', import: 'default', eager: true }) as Record<string, string>;
 const icons = Object.entries(sources).map(([path, svg]) => ({ name: path.split('/').pop()!.replace('.svg', ''), svg })).sort((a, b) => a.name.localeCompare(b.name));
-const saddleMark = decorative(icons.find(icon => icon.name === 'saddle')!.svg);
 const github = 'https://github.com/khralenok/frontier-icons';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <header class="site-header wrap">
-    <a class="brand" href="#" aria-label="Frontier Icons home"><span class="brand-mark">${saddleMark}</span><span>frontier icons</span></a>
-    <nav aria-label="Main navigation"><a href="#collection">The collection</a><a href="${import.meta.env.BASE_URL}preview/">In the wild</a><a href="${github}" target="_blank" rel="noreferrer">GitHub</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme"></button></nav>
-  </header>
-  <main>
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title">A little wild.<br><em>Simply drawn.</em></h1>
-        <p class="intro">Icons from the frontier, made for wherever you’re headed. A small, thoughtfully drawn collection with an Old West soul.</p>
-        <div class="hero-actions"><a class="button primary" href="#collection">Explore the icons <span aria-hidden="true">↓</span></a><button class="button secondary" id="download-all">Download pack <span aria-hidden="true">↧</span></button></div>
-        <p class="hero-note">${icons.length} icons <span>·</span> SVG format <span>·</span> Free & open source</p>
-      </div>
-      <div class="hero-art"><div class="sun-disc"></div><span class="art-label">EST. 2026 / THE OPEN RANGE</span><img src="${illustration}" alt="Western musician in a cowboy hat playing a guitar" fetchpriority="high"></div>
-    </section>
     <section class="showcase-promo wrap" aria-labelledby="showcase-title">
       <a class="preview-banner" href="${import.meta.env.BASE_URL}preview/" aria-labelledby="showcase-title showcase-cta">
         <span class="preview-banner-art" aria-hidden="true">${decorative(icons.find(icon => icon.name === 'coffin')!.svg)}<span>LAST MILE</span></span>
@@ -32,18 +15,17 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </section>
     <section class="collection wrap" id="collection" aria-labelledby="collection-title">
       <div class="collection-heading"><div><p class="eyebrow">THE COLLECTION</p><h2 id="collection-title">Good company for your next project<span>.</span></h2></div><span class="count">${icons.length} hand-drawn icons</span></div>
-      <div class="toolbar"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find something out here…" aria-label="Search icons"><kbd>/</kbd></label><label class="size-control">Preview size <input id="grid-size" type="range" min="32" max="64" value="48"><output id="grid-size-value">48px</output></label></div>
+      <div class="toolbar"><search aria-label="Search icon collection"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find something out here…" aria-label="Search icons"><kbd>/</kbd></label></search><label class="size-control">Preview size <input id="grid-size" type="range" min="32" max="64" value="48"><output id="grid-size-value">48px</output></label></div>
       <div class="grid" id="grid"></div><p class="empty" id="empty" hidden>No icons found. Try “cowboy”, “tools”, or another name.</p>
-      <div class="collection-bottom"><p id="results" role="status"></p><p>Made with care. Ready for adventure.</p></div>
+      <div class="collection-bottom"><p id="results"></p><p class="visually-hidden" id="results-announcement" role="status"></p><p>Made with care. Ready for adventure.</p></div>
     </section>
     <section class="license-strip wrap"><span class="license-icon" aria-hidden="true">${decorative(icons.find(icon => icon.name === 'feather')!.svg)}</span><div><h3>Yours to roam with.</h3><p>Personal projects, commercial adventures, and everything in between. Free under the MIT license.</p></div><a href="${github}/blob/main/LICENSE" target="_blank" rel="noreferrer">Read the license ↗</a></section>
-  </main>
-  <footer class="wrap"><a class="brand" href="#"><span class="brand-mark">${saddleMark}</span><span>frontier icons</span></a><a href="${import.meta.env.BASE_URL}preview/">See the icons in the wild ↗</a><a href="${github}" target="_blank" rel="noreferrer">Made open source ↗</a></footer>
-  <dialog id="detail" aria-labelledby="detail-title"><div class="dialog-top"><p class="eyebrow">FROM THE FRONTIER</p><button class="close" aria-label="Close icon details">×</button></div><h2 id="detail-title"></h2><div class="icon-preview" id="preview" aria-hidden="true"></div><div class="settings"><label>Size <output id="size-value">64px</output><input id="size" type="range" min="16" max="128" value="64"></label><label>Stroke <output id="stroke-value">2</output><input id="stroke" type="range" min="1" max="4" step="0.25" value="2"></label><label class="color-label">Color<input id="color" type="color" value="#352c25"></label></div><div class="dialog-actions"><button class="button primary" id="copy">Copy SVG</button><button class="button secondary" id="download">Download SVG ↧</button></div><details><summary>SVG source</summary><pre><code id="source"></code></pre></details></dialog>
+  <dialog id="detail" aria-labelledby="detail-title" closedby="any"><div class="dialog-top"><p class="eyebrow">FROM THE FRONTIER</p><button class="close" aria-label="Close icon details" autofocus>×</button></div><h2 id="detail-title"></h2><div class="icon-preview" id="preview" aria-hidden="true"></div><div class="settings"><label>Size <output id="size-value">64px</output><input id="size" type="range" min="16" max="128" value="64"></label><label>Stroke <output id="stroke-value">2</output><input id="stroke" type="range" min="1" max="4" step="0.25" value="2"></label><label class="color-label">Color<input id="color" type="color" value="#352c25"></label></div><div class="dialog-actions"><button class="button primary" id="copy">Copy SVG</button><button class="button secondary" id="download">Download SVG ↧</button></div><details><summary>SVG source</summary><pre><code id="source"></code></pre></details></dialog>
   <div class="toast" id="toast" role="status"></div>`;
 
 function el<T extends HTMLElement = HTMLElement>(id: string) { return document.getElementById(id) as T; }
 const themeButton = el<HTMLButtonElement>('theme-toggle');
+el('icon-total').textContent = String(icons.length);
 const sun = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>';
 const moon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5Z"/></svg>';
 function updateThemeButton() {
@@ -66,8 +48,12 @@ function render() {
   const matching = icons.filter(icon => `${icon.name} ${icon.name.replaceAll('-', ' ')} ${aliases[icon.name] || ''} ${['axe', 'hammer', 'pickaxe'].includes(icon.name) ? 'tools' : ''}`.includes(query));
   el('grid').innerHTML = matching.map(icon => `<button class="icon-card" data-icon="${icon.name}" aria-label="Preview ${icon.name}">${decorative(icon.svg)}<span>${icon.name}</span></button>`).join('');
   el('empty').hidden = matching.length > 0;
-  el('results').textContent = `Showing ${matching.length} of ${icons.length} icons`;
+  const resultText = `Showing ${matching.length} of ${icons.length} icons`;
+  el('results').textContent = resultText;
+  clearTimeout(searchAnnouncementTimer);
+  searchAnnouncementTimer = setTimeout(() => { el('results-announcement').textContent = resultText; }, 300);
 }
+let searchAnnouncementTimer: ReturnType<typeof setTimeout>;
 render();
 el('search').addEventListener('input', render);
 el<HTMLInputElement>('grid-size').addEventListener('input', event => { const value = (event.target as HTMLInputElement).value; el('grid').style.setProperty('--icon-size', `${value}px`); el('grid-size-value').textContent = `${value}px`; });
@@ -85,7 +71,18 @@ function customized() {
 function updatePreview() { const svg = customized(); el('preview').innerHTML = decorative(svg); el('source').textContent = svg; el('size-value').textContent = `${el<HTMLInputElement>('size').value}px`; el('stroke-value').textContent = el<HTMLInputElement>('stroke').value; }
 el('grid').addEventListener('click', event => { const card = (event.target as Element).closest<HTMLElement>('[data-icon]'); if (!card) return; selected = icons.find(icon => icon.name === card.dataset.icon)!; el('detail-title').textContent = selected.name; updatePreview(); dialog.showModal(); });
 dialog.querySelector('.close')!.addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', event => { if (event.target === dialog) { const rect = dialog.getBoundingClientRect(); if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close(); } });
+if (!('closedBy' in HTMLDialogElement.prototype)) {
+  const isOutside = (event: PointerEvent) => {
+    const rect = dialog.getBoundingClientRect();
+    return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
+  };
+  let pressedOutside = false;
+  dialog.addEventListener('pointerdown', event => { pressedOutside = isOutside(event); });
+  dialog.addEventListener('pointerup', event => {
+    if (pressedOutside && isOutside(event)) dialog.close();
+    pressedOutside = false;
+  });
+}
 ['size', 'stroke', 'color'].forEach(id => el(id).addEventListener('input', updatePreview));
 let toastTimer: ReturnType<typeof setTimeout>;
 function toast(message: string) { el('toast').textContent = message; el('toast').classList.add('visible'); clearTimeout(toastTimer); toastTimer = setTimeout(() => el('toast').classList.remove('visible'), 3000); }

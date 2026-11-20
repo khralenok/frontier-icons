@@ -1,19 +1,71 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A small collection of open-source SVG icons with a little frontier spirit. Browse, customize, and download." />
-    <meta name="theme-color" content="#1c1815" />
-    <script>
-      try { if (localStorage.getItem('frontier-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch {}
-      if (document.documentElement.dataset.theme === 'light') document.querySelector('meta[name="theme-color"]').content = '#f6f0e4';
-    </script>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Frontier Icons — A little wild. Simply drawn.</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="A small collection of open-source SVG icons with a little frontier spirit. Browse, customize, and download." />
+  <meta name="theme-color" content="#1c1815" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="./src/style.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&amp;family=IBM+Plex+Sans+Condensed:wght@400;500;600;700&amp;display=swap" />
+  <script>
+    try { if (localStorage.getItem('frontier-theme') === 'light') document.documentElement.dataset.theme = 'light'; } catch { }
+    if (document.documentElement.dataset.theme === 'light') document.querySelector('meta[name="theme-color"]').content = '#f6f0e4';
+  </script>
+  <link rel="icon" type="image/svg+xml" href="%BASE_URL%favicon.svg" />
+  <title>Frontier Icons — A little wild. Simply drawn.</title>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="%BASE_URL%" aria-label="Frontier Icons home"><span class="brand-mark" aria-hidden="true"><svg
+          width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M44 43v4M40 54h8l-4-7zM23 35v4M19 46h8l-4-7zM29 35c-7 0-18-1-18-7q1-3 6-4 6 0 12 11c3 5 7 11 12 9v0l5-2c6-3 3-14-1-17 9-9 4-15-2-15q-8 1-14 10l-4 4h-8M25 24c6 0 19 9 19 19" />
+        </svg></span><span>frontier icons</span></a>
+    <nav aria-label="Main navigation"><a href="#collection">The collection</a><a href="%BASE_URL%preview/">In the
+        wild</a><a href="https://github.com/khralenok/frontier-icons" target="_blank" rel="noreferrer">GitHub</a><button
+        class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">Light</button></nav>
+  </header>
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">A little wild.<br><em>Simply drawn.</em></h1>
+        <p class="intro">Icons from the frontier, made for wherever you’re headed. A small, thoughtfully drawn
+          collection with an Old West soul.</p>
+        <div class="hero-actions"><a class="button primary" href="#collection">Explore the icons <span
+              aria-hidden="true">↓</span></a><button class="button secondary" id="download-all" type="button">Download
+            pack <span aria-hidden="true">↧</span></button></div>
+        <p class="hero-note"><span id="icon-total">91</span> icons <span>·</span> SVG format <span>·</span> Free &amp;
+          open source</p>
+      </div>
+      <div class="hero-art">
+        <picture>
+          <source type="image/webp"
+            srcset="./img/hero-illustration-420.webp 420w, ./img/hero-illustration-840.webp 840w, ./img/hero-illustration-1254.webp 1254w"
+            sizes="(max-width: 390px) calc(100vw - 40px), (max-width: 650px) 350px, (max-width: 1000px) 44vw, (max-width: 1240px) 42vw, 580px" />
+          <img src="./img/hero-illustration.png" width="1122" height="1122"
+            alt="Western musician in a cowboy hat playing a guitar" fetchpriority="high" />
+        </picture>
+      </div>
+    </section>
     <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  </main>
+  <footer class="wrap"><a class="brand" href="%BASE_URL%"><span class="brand-mark" aria-hidden="true"><svg width="64"
+          height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <path
+            d="M44 43v4M40 54h8l-4-7zM23 35v4M19 46h8l-4-7zM29 35c-7 0-18-1-18-7q1-3 6-4 6 0 12 11c3 5 7 11 12 9v0l5-2c6-3 3-14-1-17 9-9 4-15-2-15q-8 1-14 10l-4 4h-8M25 24c6 0 19 9 19 19" />
+        </svg></span><span>frontier icons</span></a><a href="%BASE_URL%preview/">See the icons in the wild ↗</a><a
+      href="https://github.com/khralenok/frontier-icons" target="_blank" rel="noreferrer">Made open source ↗</a>
+  </footer>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
